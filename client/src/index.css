@@ -1,0 +1,227 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    background: #f5f0f0;
+    color: #3e3e3e;
+    overflow-x: hidden;
+}
+
+p{font-size: 14px; line-height: 25px; margin-bottom: 10px; margin-top: 10px;}
+
+h1, h2, h3, h4, h5, h6{font-weight: 600;}
+
+::-webkit-scrollbar{width: 8px !important; height: 8px !important; }
+::-webkit-scrollbar-track{background-color: #f5f0f0; }
+::-webkit-scrollbar-thumb{background-color: #c5c5c5; border-radius: 20%;}
+
+
+.overflow-x-auto::-webkit-scrollbar-thumb{background: #ccc;}
+
+.container {
+    width: 90%;
+    margin: auto;
+}
+
+.btn-org{background: #ff5252 !important; color: #fff !important; font-weight: 500;
+font-size: 16px; padding: 7px 20px !important;}
+.btn-org:hover{background: #171717 !important;}
+
+
+.btn-org.btn-border{background: none !important; color: #ff5252 !important; border: 1px solid #ff5252;
+    font-weight: 500; font-size: 16px; padding: 7px 20px !important;}
+.btn-org.btn-border:hover{background: #171717 !important; color: #fff !important; border: 1px solid #171717 !important;}
+
+
+.btn-lg{ font-size: 18px; padding: 10px 20px !important;}
+.btn-sm{ font-size: 12px !important; padding: 5px 20px !important;}
+
+.link:hover {
+    color: #ff5252;
+}
+
+.MuiBadge-badge {
+    background-color: #ff5252 !important;
+}
+
+nav ul button {
+    text-transform: capitalize !important;
+}
+nav ul button:hover{
+    background: none !important;
+}
+
+.scroll::-webkit-scrollbar{width: 5px !important;}
+.scroll::-webkit-scrollbar-thumb{background: #ccc !important;}
+
+/* banner slider home */
+.sliderHome {
+    overflow: inherit !important;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border-radius: 100%;
+    width: 45px;
+    height: 45px;
+    min-width: 45px;
+    box-shadow: 0 1px 3px #0000001f, 0 1px 3px #0000003d !important;
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+    font-size: 22px !important;
+    color: #000;
+}
+
+
+/* Home cat slider */
+.homeCatSlider {
+    overflow: inherit !important;
+}
+
+.homeCatSlider .swiper-button-prev,
+.homeCatSlider .swiper-button-next {
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+}
+
+.homeCatSlider .swiper-button-prev:after,
+.homeCatSlider .swiper-button-next:after {
+    font-size:
+        16px !important;
+}
+
+
+.homeCatSlider .swiper-button-prev {
+    left: 5px !important;
+}
+
+.homeCatSlider .swiper-button-next {
+    right: 5px !important;
+}
+
+.homeCatSlider .item {
+    width: 140px; /* Ukuran tetap */
+    height: 120px; /* Tinggi tetap agar sejajar */
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 12px 8px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.homeCatSlider .swiper-button-prev:hover,
+.homeCatSlider .swiper-button-next:hover {
+    background: #ff5252 !important;
+}
+
+.homeCatSlider .swiper-button-prev:hover::after,
+.homeCatSlider .swiper-button-next:hover::after {
+    color: #fff !important;
+}
+
+.homeCatSlider .item img {
+    max-height: 90px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.homeCatSlider .item:hover img {
+    transform: scale(1.1);
+}
+
+.homeCatSlider .item h3,
+.homeCatSlider .item p {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    margin: 0;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* populer produk*/
+.MuiTabs-indicator{background-color: #ff5252 !important;}
+.MuiTab-textColorPrimary.Mui-selected{color: #ff5252 !important;}
+
+.productsSlider .swiper-wrapper{padding: 15px; margin-left: -15px; margin-right: -15px;}
+
+
+.MuiCheckbox-root{padding: 6px !important; }
+
+
+.ReactCollapse--collapse {
+    transition: height 400ms;
+  }
+
+
+.itemViewActions button.active svg{color: #ff5252 !important; opacity: 1;}
+.Mui-selected.MuiPaginationItem-page{background: #ff5252 !important; color: #fff !important;}
+
+
+.zoomProductSliderThumbs .swiper-wrapper{padding-top: 0px !important;}
+
+.zoomProductSliderThumbs .swiper-button-next{bottom: 0px !important; right: inherit !important;
+top: inherit !important; width: 100px !important; height: 30px !important; 
+border-radius: 0px !important;}
+
+.zoomProductSliderThumbs .swiper-button-next:after{transform: rotate(90deg);}
+
+.zoomProductSliderThumbs .swiper-button-prev{top: 20px !important; left:0  !important; 
+width: 100px !important; height: 30px !important; border-radius: 0px !important;}
+
+.zoomProductSliderThumbs .swiper-button-prev:after{transform: rotate(90deg);}
+
+.productContent .actions button{min-width: 40px !important; height: 30px !important;
+border: 1px solid rgba(0,0,0,0.1) !important; color: rgba(0,0,0,0.7);}
+
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.reviewScroll::-webkit-scrollbar{width: 5px !important;}
+.reviewScroll::-webkit-scrollbar-thumb{background: #ccc !important;}
+
+
+.productDetailsModal .MuiDialogContent-root{padding: 15px !important;}
+
+.cartPanel .MuiPaper-root{width: 400px; overflow: hidden;}
+
+#size-menu .MuiButtonBase-root{font-size: 12px !important;}
+
+#account-menu .MuiPaper-root{width: 200px !important;}
+
+.myAccountTabs li a{position: relative; display: block;}
+.myAccountTabs li a:before{content: ''; width: 3px; height: 50%; position: absolute; top: 50%;
+left: 0px; background: #ff5252; transition: all 0.3s ease-in-out; opacity: 0;}
+
+.myAccountTabs li a.active::before{height: 100%; opacity: 1; top: 0px;}
+
+.myAccountTabs li a.active button svg{color: #ff5252 !important; opacity: 1 !important;}
