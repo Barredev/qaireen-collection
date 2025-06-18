@@ -1,0 +1,324 @@
+/* Styling untuk halaman admin secara umum */
+.admin-page-container {
+    padding: 2rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f9fafb;
+}
+
+.admin-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.admin-page-header h1 {
+    font-size: 1.875rem;
+    font-weight: 600;
+    color: #111827;
+}
+
+.add-btn,
+.submit-btn {
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.add-btn:hover,
+.submit-btn:hover {
+    background-color: #2563eb;
+}
+
+/* Styling untuk Tabel */
+.admin-table-container {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 1rem 1.5rem;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+    color: #374151;
+}
+
+.admin-table th {
+    background-color: #f9fafb;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #6b7280;
+}
+
+.table-image-preview {
+    max-width: 120px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 0.25rem;
+}
+
+.status-active,
+.status-inactive {
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.status-active {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+.status-inactive {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.edit-btn,
+.delete-btn {
+    border: 1px solid #d1d5db;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    background-color: white;
+    transition: background-color 0.2s;
+}
+
+.edit-btn:hover,
+.delete-btn:hover {
+    background-color: #f3f4f6;
+}
+
+/* Styling untuk Form */
+.admin-form {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #374151;
+}
+
+.form-group input[type="text"],
+.form-group input[type="file"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+}
+
+.form-group-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.custom-checkbox {
+    height: 1.25rem;
+    width: 1.25rem;
+}
+
+.image-preview-container {
+    margin-top: 1rem;
+}
+
+.image-preview {
+    max-width: 300px;
+    height: auto;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    margin-top: 0.5rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+}
+
+textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    font-family: inherit;
+}
+
+.image-preview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.image-preview-grid .image-preview {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+}
+
+.add-category-form {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+}
+
+.add-category-input-group {
+    display: flex;
+    gap: 1rem;
+}
+
+.add-category-input-group input {
+    flex-grow: 1;
+    width: auto;
+}
+
+.add-category-input-group button {
+    flex-shrink: 0;
+}
+
+.status-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+/* Style ini akan dipakai oleh status "Lunas" dan status "Selesai" */
+.status-active {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+/* Style ini akan dipakai oleh status "Belum Lunas" dan "Menunggu Pembayaran" */
+.status-pending {
+    background-color: #e5e7eb;
+    color: #4b5563;
+}
+
+/* Style ini akan dipakai oleh status "Dibatalkan" */
+.status-inactive {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+/* Style baru untuk status pesanan */
+.status-shipped {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+.status-processing {
+    background-color: #dbeafe;
+    color: #1e40af;
+}
+
+.order-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.order-detail-main {
+    grid-column: span 2 / span 2;
+}
+
+.order-detail-sidebar {
+    grid-column: span 1 / span 1;
+}
+
+.detail-card {
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    margin-bottom: 2rem;
+}
+
+.detail-card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.order-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.order-item-image {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 0.25rem;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+}
+
+.summary-row.total {
+    font-size: 1.125rem;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 1rem;
+    margin-top: 1rem;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.mt-2 {
+    margin-top: 0.5rem;
+}

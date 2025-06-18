@@ -29,7 +29,7 @@ const DashboardBoxes = () => {
                 className="dashboardBoxesSlider"
             >
                 <SwiperSlide>
-                    <div className='box bg-white p-5 cursor-pointer hover:bg-[#fafafa] rounded-md border border-[rgba(0,0,0,0.1)] flex
+                    <div className='box bg-white p-5 cursor-pointer hover:bg-[#f1faff] rounded-md border border-[rgba(0,0,0,0.1)] flex
             items-center gap-4'>
 
                         <TfiGift className='text-[40px] text-[#3872fa]' />
@@ -42,7 +42,7 @@ const DashboardBoxes = () => {
                 </SwiperSlide>
 
                 <SwiperSlide>
-                    <div className='box bg-white p-5 cursor-pointer hover:bg-[#fafafa] rounded-md border border-[rgba(0,0,0,0.1)] flex
+                    <div className='box bg-white p-5 cursor-pointer hover:bg-[#f1faff] rounded-md border border-[rgba(0,0,0,0.1)] flex
             items-center gap-4'>
 
                         <AiTwotonePieChart className='text-[50px] text-[#10b981]' />
@@ -55,7 +55,7 @@ const DashboardBoxes = () => {
                 </SwiperSlide>
 
                 <SwiperSlide>
-                    <div className='box bg-white p-5 cursor-pointer hover:bg-[#fafafa] rounded-md border border-[rgba(0,0,0,0.1)] flex
+                    <div className='box bg-white p-5 cursor-pointer hover:bg-[#f1faff] rounded-md border border-[rgba(0,0,0,0.1)] flex
             items-center gap-4'>
 
                         <BsBank className='text-[50px] text-[#7928ca]' />
@@ -68,7 +68,7 @@ const DashboardBoxes = () => {
                 </SwiperSlide>
 
                 <SwiperSlide>
-                    <div className='box bg-white p-5 cursor-pointer hover:bg-[#fafafa] rounded-md border border-[rgba(0,0,0,0.1)] flex
+                    <div className='box bg-white p-5 cursor-pointer hover:bg-[#f1faff] rounded-md border border-[rgba(0,0,0,0.1)] flex
             items-center gap-4'>
 
                         <FaOpencart className='text-[50px] text-[#d636c9]' />
