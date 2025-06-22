@@ -1,70 +1,90 @@
-import React, { useState, useEffect } from 'react'; // Impor useState dan useEffect
-import { Link } from 'react-router-dom';
-import axios from 'axios'; // 1. Impor axios
+import React, { useState, useEffect } from 'react';
+// 1. Impor 'useNavigate' untuk mengarahkan pengguna
+import { Link, useNavigate } from 'react-router-dom';
 import './AdminStyles.css';
 import { FaEdit, FaTrash } from 'react-icons/fa';
+import axios from 'axios';
 
 const ProductListPage = () => {
-    // 2. Buat state untuk menampung produk, status loading, dan error
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
+    // 2. Inisialisasi hook useNavigate
+    const navigate = useNavigate();
 
-    // 3. Gunakan useEffect untuk mengambil data saat komponen pertama kali dimuat
-
+    // Fungsi untuk mengambil semua produk (tidak ada perubahan)
     useEffect(() => {
-        console.log('useEffect berjalan, tapi sengaja tidak melakukan fetch data.');
-    
-        // Langsung set loading ke false untuk melewati pesan "Memuat..."
-        setLoading(false); 
-    
-        /*
-        // Logika fetch kita matikan sementara
         const fetchProducts = async () => {
-          try {
-            setLoading(true);
-            const { data } = await axios.get('http://localhost:5000/api/products');
-            setProducts(data);
-            setLoading(false);
-          } catch (err) {
-            setError('Gagal mengambil data produk');
-            console.error(err);
-            setLoading(false);
-          }
+            try {
+                setLoading(true);
+                const { data } = await axios.get('http://localhost:5000/api/products');
+                setProducts(data);
+                setLoading(false);
+            } catch (err) {
+                setError('Gagal mengambil data produk. Pastikan server backend berjalan.');
+                console.error(err);
+                setLoading(false);
+            }
         };
-    
         fetchProducts();
-        */
-      }, []); // Dependensi tetap kosong
+    }, []);
 
+    // 3. LOGIKA UNTUK MENGHAPUS PRODUK
+    const handleDeleteProduct = async (id) => {
+        // Tampilkan jendela konfirmasi sebelum menghapus
+        if (window.confirm('Apakah Anda yakin ingin menghapus produk ini?')) {
+            try {
+                // Panggil API DELETE ke backend
+                // Catatan: Jika API dilindungi, Anda perlu mengirim token otorisasi di sini
+                await axios.delete(`http://localhost:5000/api/products/${id}`);
 
-    // ... (Fungsi formatRupiah dan handleDeleteProduct tetap sama)
+                // Perbarui tampilan dengan menghapus produk dari state
+                setProducts(products.filter((p) => p._id !== id));
+                alert('Produk berhasil dihapus!');
+            } catch (err) {
+                const message = err.response?.data?.message || err.message;
+                alert(`Gagal menghapus produk: ${message}`);
+            }
+        }
+    };
+
+    // 4. LOGIKA UNTUK MEMBUAT PRODUK BARU
+    const handleCreateProduct = async () => {
+        if (window.confirm('Buat produk baru dengan data contoh? Anda akan diarahkan ke halaman edit.')) {
+            try {
+                setLoading(true);
+                // Panggil API POST untuk membuat produk. Body bisa kosong.
+                // Catatan: Jika API dilindungi, Anda perlu mengirim token otorisasi di sini
+                const { data: createdProduct } = await axios.post('http://localhost:5000/api/products', {});
+
+                setLoading(false);
+                // Arahkan pengguna ke halaman edit untuk produk yang baru dibuat
+                navigate(`/admin/product/${createdProduct._id}/edit`);
+            } catch (err) {
+                const message = err.response?.data?.message || err.message;
+                alert(`Gagal membuat produk: ${message}`);
+                setLoading(false);
+            }
+        }
+    };
+
     const formatRupiah = (number) => new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(number);
-    const handleDeleteProduct = (productId) => { /* ... logika hapus (sementara) ... */ };
 
+    if (loading) return <div className="admin-page-container"><h2>Memuat data produk...</h2></div>;
+    if (error) return <div className="admin-page-container"><h2>Error: {error}</h2></div>;
 
-    // 4. Tampilkan pesan loading atau error jika ada
-    if (loading) {
-        return <div className="admin-page-container"><h2>Memuat data produk...</h2></div>;
-    }
-    if (error) {
-        return <div className="admin-page-container"><h2>Error: {error}</h2></div>;
-    }
-
-    // 5. Tampilkan tabel jika data berhasil dimuat
     return (
         <div className="admin-page-container">
             <div className="admin-page-header">
                 <h1>Manajemen Produk ({products.length})</h1>
-                <Link to="/admin/product/add">
-                    <button className="add-btn">+ Tambah Produk</button>
-                </Link>
+                {/* 5. UBAH TOMBOL <Link> MENJADI <button> YANG MEMANGGIL FUNGSI */}
+                <button className="add-btn" onClick={handleCreateProduct}>
+                    + Tambah Produk
+                </button>
             </div>
 
             <div className="admin-table-container">
                 <table className="admin-table">
-                    {/* ... Isi tabel (thead dan tbody) tidak berubah sama sekali ... */}
-                    {/* Ia akan otomatis me-render data dari state 'products' yang baru */}
                     <thead>
                         <tr>
                             <th>GAMBAR</th>
@@ -94,8 +114,13 @@ const ProductListPage = () => {
                                 <td>{product.stock}</td>
                                 <td>
                                     <div className="action-buttons">
-                                        <Link to={`/admin/product/${product._id}/edit`}><button className="edit-btn" title="Edit Produk"><FaEdit /></button></Link>
-                                        <button className="delete-btn" title="Hapus Produk" onClick={() => handleDeleteProduct(product._id)}><FaTrash /></button>
+                                        <Link to={`/admin/product/${product._id}/edit`}>
+                                            <button className="edit-btn" title="Edit Produk"><FaEdit /></button>
+                                        </Link>
+                                        {/* 6. Pastikan tombol hapus memanggil fungsi yang benar */}
+                                        <button className="delete-btn" title="Hapus Produk" onClick={() => handleDeleteProduct(product._id)}>
+                                            <FaTrash />
+                                        </button>
                                     </div>
                                 </td>
                             </tr>

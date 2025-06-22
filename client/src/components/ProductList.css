@@ -1,0 +1,41 @@
+.product-list-section {
+    margin-bottom: 3rem; /* Jarak antar seksi produk */
+  }
+  
+  .section-title {
+    font-size: 1.75rem; /* 28px */
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 0.75rem;
+  }
+  
+  .product-grid {
+    display: grid;
+    /* Membuat 4 kolom di layar besar, 2 di layar sedang, 1 di layar kecil */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem; /* Jarak antar kartu */
+  }
+  
+  /* Media Query untuk Tablet */
+  @media (max-width: 1024px) {
+    .product-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  /* Media Query untuk HP */
+  @media (max-width: 768px) {
+    .product-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .section-title {
+      font-size: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .product-grid {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
